@@ -2,10 +2,7 @@
 %global debug_package %{nil}
 %endif
 
-%if %{_isstage} == no
-  %define _rpmfilename %%{NAME}_%%{VERSION}-%%{RELEASE}_%%{ARCH}_%{_hashcommit}.rpm
-%else
-  %define _rpmfilename %%{NAME}-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm
+%define _rpmfilename %{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}.rpm
 %endif
 
 Summary:     Wazuh helps you to gain security visibility into your infrastructure by monitoring hosts at an operating system and application level. It provides the following capabilities: log analysis, file integrity monitoring, intrusions detection and policy and compliance monitoring
@@ -31,7 +28,7 @@ Summary: Debug information for package %{name}.
 This package provides debug information for package %{name}.
 
 Requires: coreutils
-BuildRequires: coreutils glibc-devel automake autoconf libtool policycoreutils-python perl # ← для сборки в Alma9: можно заменить на -utils
+BuildRequires: coreutils glibc-devel automake autoconf libtool policycoreutils-python-utils-utils perl # ← для сборки в Alma9: можно заменить на -utils
 
 ExclusiveOS: linux
 
